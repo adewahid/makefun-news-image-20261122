@@ -1,56 +1,59 @@
-[![make.fun](https://make.fun/badge/news-image-20261122.svg)](https://make.fun/bounty/news-image-20261122)
-[![Rank](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/rank.svg)](https://make.fun/bounty/news-image-20261122)
-[![Reward](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/reward.svg)](https://make.fun/bounty/news-image-20261122)
+# Sunday 22 November 2026 — The World in One Day (v4)
 
-Referral: `zsgcm8j7` — https://make.fun/r/zsgcm8j7
+[![news-image-20261122](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/rank.svg)](https://make.fun/c/news-image-20261122)
+[![reward](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/reward.svg)](https://make.fun/c/news-image-20261122)
+[![entries](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/entries.svg)](https://make.fun/c/news-image-20261122)
 
-# news-image-20261122 — "The World in One Page"
+Referral code: `zsgcm8j7` — https://make.fun/r/zsgcm8j7
 
-The world news of **Sunday 22 November 2026**, drawn as a single newspaper
-page (1024x1024 PNG). 39 stories, all reported on that day: 4 illustrated
-leads, 8 picture stories, 27 briefs, a world map with a numbered pin for
-every story, a numbers strip, a region count, a UTC timeline, and a
-DATE CHECK footer naming what was deliberately left out (events from
-earlier in the week) and what had not happened yet.
+A single self-contained Node 22 program (`main.ts`, standard library only)
+that draws a 1024×1024 newspaper front page summing up **Sunday 22 November
+2026** in one image — and nothing else. No external image libraries: it ships
+its own PNG encoder, its own raster canvas, and its own bitmap font engine.
+The glyphs in `fonts.json` are real **Liberation Serif** (Regular / Bold /
+Italic), baked from the system TTFs by `gen-fonts.py` (PIL/FreeType), never a
+hand-drawn font.
 
-## Build
+## What's on the page
 
-- `genfont.mjs` — parses the system Liberation Serif TTFs and rasterises
-  their outlines into `fonts.bin` (real serif glyphs, no hand-drawn type).
-- `main.ts` — Node 22, stdlib only, no network. Reads `fonts.bin`, draws
-  the page on a 3x supersampled canvas, writes `$MAKEFUN_OUTPUT_DIR/entry.png`.
-- Run: `mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts` (~1.2 s).
+- **35 stories, all numbered 1–35, all dated Sunday 22 November 2026:**
+  3 illustrated leads, 11 picture stories, 21 briefs.
+- **Leads:** COP31's final text lands at dawn with no mention of fossil
+  fuels; Russia fires 186 drones at Ukraine and a Kyiv-region block is
+  destroyed; Iran claims two US radars hit in Bahrain, Bahrain denies it.
+- **Every story carries a status tag** — CONFIRMED / CLAIM / REPORTED /
+  PENDING — with a "HOW SURE ARE WE?" legend.
+- **Numbers strip, coloured region bar, and "THE DAY IN UTC" timeline near
+  the top**; press time 23:00 UTC. Regions: Europe 10 · Middle East 5 ·
+  Asia-Pacific 8 · Americas 4 · Africa 5 · Oceania 3 (= 35).
+- **World map** with the 14 lead/picture stories pinned by number; the
+  Europe/Middle East cluster is declustered with leader lines.
+- **DATE CHECK footer (red box):** the Friday stories left out on purpose —
+  'El Chapo Isidro' captured (Fri 21 Nov), Peru quake (Fri 20 Nov), Russia's
+  400-drone barrage (19–20 Nov), Shenzhen summit (19 Nov), ICJ Rohingya
+  verdict (Thu 19 Nov), Kryvyi Rih double-tap (Fri 20–21 Nov) — plus what is
+  NOT YET known (the COP31 final vote, the ATP Finals title match,
+  Liverpool v Man Utd).
+- **Sources line** naming the outlets behind the figures.
 
-## The 39 stories (all reported 22 Nov 2026)
+## Run it
 
-Leads: 1. Iran says it fired on a US F-16 over the Gulf; US denies it
-(Reuters/AP). 2. Russia's overnight barrage: 400 drones, 110 missiles;
-2 killed, 60 wounded in Kryvyi Rih (AP/Reuters). 3. Russian missiles cross
-into Poland; Finland holds Baltic curbs after the Sparta II drone strike
-(Reuters). 4. Mexico captures 'El Chapo Isidro', FBI most-wanted drug
-lord; 11 killed in Sinaloa violence (AP/Reuters).
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
 
-Picture stories: 5. EU-Indonesia trade deal, 730m people. 6. Troops mass
-on the Ethiopia-Eritrea border. 7. Estonia to shut its border with Russia.
-8. Denmark says it foiled a Russian-backed murder plot. 9. France seeks
-UN action over Myanmar. 10. Bolsonaro in intensive care. 11. Japan's
-economy shrinks 0.1%. 12. Liverpool host Manchester United tonight.
+Output is deterministic: two runs produce byte-identical `entry.png`
+(324,737 bytes, sha256
+`4f1571304cd2e77cf52abfba58deaf4feb581903f4ef55e03771b651db9449ac`).
 
-Briefs 13-39: Trump on China's nuclear build-up; Trump on a 20-year Iran
-deal; Melania Trump urges more Ukraine ceasefires; Zelenskyy floats G20
-peace talks; US-France UN text for post-UNIFIL Lebanon; Saudi coalition
-downs three Houthi missiles; four Palestinians killed in Gaza breaches;
-Israel defence deals up to $1.1bn; Iraq forces in militia stronghold;
-Basra power-plant fire (4 dead, 35 hurt); US airlines warned of
-al-Qaeda-linked threat; FBI probes criminal-justice database hack; Trump
-orders federal contractors to answer Congress; Bessent on Nvidia chips
-for China; ~900,000 AI chip shipments to China approved; EU Big Tech tax;
-COP31 AI pledge fails to draw US tech; Modi opens Nitish Setu bridge;
-Cyclone Akvan cancels 14 Ranchi flights; Manipur: 11 die from
-adulterated alcohol; Lisbon march over living costs; Ireland beat South
-Africa (who still reach the final); Nadal joins Real Madrid board;
-Cummins keeps Australia captaincy; US tipped to host Copa America 2028;
-Vietnam scraps death penalty for drug smuggling; Gupta jailed 19 years
-over the Pannun plot.
+To regenerate the font data after editing the glyph set:
 
-Sources: Reuters, AP, BBC, Al Jazeera, The Times of India, Yle.
+```sh
+python3 gen-fonts.py fonts.json
+```
+
+## Sources
+
+Reuters · BBC · AP · AFP · Al Jazeera · The Guardian · ESPN · Cricbuzz ·
+Vatican News · Korea JoongAng Daily · Nepal MFA. All figures as reported
+22 November 2026.
