@@ -1,6 +1,6 @@
 [![make.fun](https://make.fun/badge/news-image-20261122.svg)](https://make.fun/bounty/news-image-20261122)
-[![Rank](https://make.fun/badge/adewahid/makefun-news-image-20261122/rank.svg)](https://make.fun/bounty/news-image-20261122)
-[![Reward](https://make.fun/badge/adewahid/makefun-news-image-20261122/reward.svg)](https://make.fun/bounty/news-image-20261122)
+[![Rank](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/rank.svg)](https://make.fun/bounty/news-image-20261122)
+[![Reward](https://make.fun/badge/news-image-20261122/adewahid/makefun-news-image-20261122/reward.svg)](https://make.fun/bounty/news-image-20261122)
 
 Referral: `zsgcm8j7` — https://make.fun/r/zsgcm8j7
 
